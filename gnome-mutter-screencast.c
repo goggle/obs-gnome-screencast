@@ -143,8 +143,6 @@ static GstFlowReturn new_sample(GstAppSink *appsink, gpointer user_data)
 	data_t *data = user_data;
 	GstSample *sample = gst_app_sink_pull_sample(appsink);
 	GstBuffer *buffer = gst_sample_get_buffer(sample);
-	gst_buffer_ref(
-		buffer); // what? need to ref here if we dont want always-copy=true for pipewiresrc
 	GstCaps *caps = gst_sample_get_caps(sample);
 	GstMapInfo info;
 	GstVideoInfo video_info;
