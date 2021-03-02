@@ -274,7 +274,7 @@ static void dbus_cb(GDBusConnection *connection, const gchar *sender_name,
 	g_variant_get(parameters, "(u)", &node_id, NULL);
 
 	gchar *pipeline = g_strdup_printf(
-		"pipewiresrc client-name=obs-studio path=%u ! video/x-raw ! "
+		"pipewiresrc client-name=obs-studio path=%u always-copy=true ! video/x-raw ! "
 		"appsink max-buffers=2 drop=true sync=false name=appsink",
 		node_id);
 
